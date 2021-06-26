@@ -143,29 +143,29 @@ WHERE 1=2;
 ​			定点数
 ​			浮点数
 
-![image-20210220152720909](https://github.com/xzx-summer/image.git/img/image-20210220152720909.png)
+![image-20210220152720909](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210220152720909.png)
 
-![image-20210220154638947](https://github.com/xzx-summer/image.git/img/image-20210220154638947.png)
+![image-20210220154638947](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210220154638947.png)
 
 字符型：
 ​	较短的文本：char、varchar
 ​	较长的文本：text、blob（较长的二进制数据）
 
-![image-20210220172139355](https://github.com/xzx-summer/image.git/img/image-20210220172139355.png)
+![image-20210220172139355](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210220172139355.png)
 
-![image-20210220172825345](https://github.com/xzx-summer/image.git/img/image-20210220172825345.png)
+![image-20210220172825345](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210220172825345.png)
 
-![image-20210220172917661](https://github.com/xzx-summer/image.git/img/image-20210220172917661.png)
+![image-20210220172917661](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210220172917661.png)
 
-![image-20210220172944100](https://github.com/xzx-summer/image.git/img/image-20210220172944100.png)
+![image-20210220172944100](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210220172944100.png)
 
-![image-20210220211730056](https://github.com/xzx-summer/image.git/img/image-20210220211730056.png)
+![image-20210220211730056](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210220211730056.png)
 
 日期型：
 
-![image-20210220212127593](https://github.com/xzx-summer/image.git/img/image-20210220212127593.png)
+![image-20210220212127593](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210220212127593.png)
 
-![image-20210220212949972](https://github.com/xzx-summer/image.git/img/image-20210220212949972.png)
+![image-20210220212949972](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210220212949972.png)
 
 ```mysql
 #整型
