@@ -23,7 +23,7 @@ DBMS分为两类：
 
 电脑管家；电脑卸载，记得MySQL文件夹和ProgramData文件夹，清理注册表
 
-![image-20201221190321545](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20201221190321545.png)
+![image-20201221190321545](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20201221190321545.png)
 
 安装：
 
