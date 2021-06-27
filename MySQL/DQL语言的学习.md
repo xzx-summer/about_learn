@@ -321,7 +321,7 @@ ORDER BY salary ASC,employee_id DESC;
 
 ### 单行函数
 
-![image-20210201163219489](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20210201163219489.png)
+![image-20210201163219489](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210201163219489.png)
 
 
 
@@ -443,7 +443,7 @@ WHERE commission_pct IS NOT NULL;
 #MONTHNAME 以英文形式返回月
 ```
 
-![image-20210201185946512](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20210201185946512.png)
+![image-20210201185946512](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210201185946512.png)
 
 
 
@@ -599,7 +599,7 @@ FROM employees;
 
 ## 分组查询
 
-![image-20210202162249731](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20210202162249731.png)
+![image-20210202162249731](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210202162249731.png)
 
 ```mysql
 #分组查询
@@ -701,7 +701,7 @@ ORDER BY AVG(salary) DESC;
 
 ## 连接查询
 
-![image-20210202204227699](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20210202204227699.png)
+![image-20210202204227699](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210202204227699.png)
 
 ```mysql
 #连接查询
@@ -987,9 +987,9 @@ sql92和sql99比较：
 功能：sql99支持的较多
 可读性：sql99实现连接条件和筛选条件的分离，可读性较高
 
-![image-20210205211239094](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20210205211239094.png)
+![image-20210205211239094](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210205211239094.png)
 
-![image-20210205211436287](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20210205211436287.png)
+![image-20210205211436287](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210205211436287.png)
 
 
 
@@ -1194,7 +1194,7 @@ WHERE NOT EXISTS(
 
 
 
-![image-20210216145326821](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20210216145326821.png)
+![image-20210216145326821](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210216145326821.png)
 
 ## 分页查询
 
