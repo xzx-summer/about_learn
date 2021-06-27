@@ -8,7 +8,7 @@ Transaction Control Language 事务控制语言
 
 事物：一个或一组sql语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行
 
-![image-20210303170938199](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20210303170938199.png)
+![image-20210303170938199](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210303170938199.png)
 
 ```mysql
 #事务处理
@@ -43,13 +43,13 @@ COMMIT;
 
 
 
-![image-20210303171507172.png](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20210303171507172.png)
+![image-20210303171507172.png](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210303171507172.png)
 
-![image-20210304150000511](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20210304150000511.png)
+![image-20210304150000511](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210304150000511.png)
 
-![image-20210304145912400](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20210304145912400.png)
+![image-20210304145912400](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210304145912400.png)
 
-![image-20210304152405097](https://raw.githubusercontent.com/xzx-summer/image/main/img/img/image-20210304152405097.png)
+![image-20210304152405097](https://raw.githubusercontent.com/xzx-summer/image/main/img/image-20210304152405097.png)
 
 事务的隔离级别：
 
