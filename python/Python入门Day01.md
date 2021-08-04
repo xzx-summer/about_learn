@@ -260,7 +260,7 @@ print(*object,sep=' ',end='\n',file=sys.stdout,flush=False)
 
 ### 原码、反码、补码
 
-计算机内部使用补码表示
+计算机内部使用==补码==表示
 
 原码：就是其二进制表示，有一位符号位（最高位1为负，0为正）
 
@@ -271,4 +271,272 @@ print(*object,sep=' ',end='\n',file=sys.stdout,flush=False)
 在位运算中符号位也参与运算
 
 ### 按位运算
+
+* `~`按位非运算：将补码中的0和1全部取反（0变为1，1变为0），有符号整数的符号位同样取反
+* `&`按位与运算：只有两个对应位都为1时才为1
+* `|`按位或运算：只要两个对应位中有一个1时就为1
+* `^`按位异或运算：只有两个对应位不同时才为1，它满足交换律和结合律（`A^B=B^A`、`A^A=0`、`A^0=A`、`A^B^A=A^A^B=B`）
+* `<<`按位左移运算：将二进制表示向左移动指定位数所得的值
+* `>>`按位右移运算：将二进制表示向右移动指定位数所得的值
+
+### 利用位运算实现快速计算
+
+* 利用`<<`、`>>`快速计算2的倍数问题
+
+  左移乘以2的次方，右移除以2的次方
+
+* 利用`^`快速交换两个整数
+
+  ```python
+  a ^= b#a=a^b
+  b ^= a#b=b^ a^b=a
+  a ^= b#a=a^b ^a=b
+  ```
+
+* 利用`a&(-a)`快速获取a的最后为1位置的整数
+
+### 利用位运算实现整数集合
+
+一个数的二进制表示可以看作一个集合，0表示不在集合中，1表示在集合中
+
+如集合 `{1, 3, 4, 8}`，可以表示成 `01 00 01 10 10` 而对应的位运算也就可以看作是对集合进行的操作
+
+元素与集合的操作：
+
+```python
+a | (1<<i)  -> 把 i 插入到集合中
+a & ~(1<<i) -> 把 i 从集合中删除
+a & (1<<i)  -> 判断 i 是否属于该集合（零不属于，非零属于）
+```
+
+集合之间的操作：
+
+```python
+a 补   -> ~a
+a 交 b -> a & b
+a 并 b -> a | b
+a 差 b -> a & (~b)
+```
+
+注意：整数在内存中是以补码的形式存在的，输出自然也是按照补码输出。
+
+* Python中bin一个负数（十进制表示），输出的是它的原码的二进制加一个负号
+* Python中的整型是补码形式存储的
+* Python中整型是不限制长度的不会超范围溢出
+
+为了得到负数的补码，需要手动将其和十六进制数（`0xffffffff`）进行按位与操作，再交给bin()进行输出
+
+```python
+print(bin(-3 & 0xffffffff))#0b11111111111111111111111111111101
+```
+
+
+
+## 条件语句
+
+### if语句
+
+```python
+if expression:
+    expr_true_suite
+```
+
+当expression为真时执行expr_true_suite，否则跳过expr_true_suite，继续执行紧跟在该代码块后面的语句
+
+### if-else语句
+
+```python
+if expression:
+    expr_true_suite
+else:
+    expr_false_suite
+```
+
+`if`语句支持嵌套
+
+* Python使用缩进而不是大括号来标记代码块边界，因此要特别注意esle的悬挂问题
+
+> input函数将接收的任何数据类型都默认为str
+
+### if-elif-else语句
+
+```python
+if expression1:
+    expr1_true_suite
+elif expression2:
+    expr2_true_suite
+    .
+    .
+elif expressionN:
+    exprN_true_suite
+else:
+    expr_false_suite
+```
+
+elif即为else if
+
+### assert关键字
+
+assert这个关键词我们称之为断言，当这个关键词后面的条件为False时，程序自动崩溃并抛出AssertionError的异常
+
+* 在进行单元测试时，可以用来在程序中置入检查点，只有条件为True才能让程序正常工作
+
+
+
+## 循环语句
+
+### while循环
+
+```python
+while 布尔表达式:
+    代码块
+```
+
+### while-else循环
+
+```python
+while 布尔表达式:
+    代码块
+else:
+    代码块
+```
+
+当while循环正常执行完后，执行else输出，如果while循环中执行了跳出循环的语句（break），将不执行else代码块的内容
+
+### for循环
+
+在Python中相当于一个通用的序列迭代器，可以遍历任何有序序列（str、list、tuple等）和可迭代对象（dict）
+
+```python
+for 迭代变量 in 可迭代对象:
+    代码块
+```
+
+### for-else循环
+
+```python
+for 迭代变量 in 可迭代对象:
+    代码块
+else:
+    代码块
+```
+
+和while-else语句一样
+
+### range()函数
+
+```python
+range([start,] stop[, step=1])
+```
+
+* 有三个参数，用中括号括起来的两个表示这两个参数可选
+* step=1表示第三个参数的默认值是1，它表示两个数之间的间隔数
+* range的作用是生成一个从start参数的值开始到stop参数的值结束的数字序列，序列包含start但不包含stop
+
+### enumerate()函数
+
+```python
+enumerate(sequence, [start=0])
+```
+
+* sequence：一个序列、迭代器或者其他支持迭代对象
+* start：下标起始位置
+* 返回enumerate（枚举）对象
+
+**与for循环的结合使用：**
+
+```python
+for i, a in enumerate(A)
+    do something with a  
+```
+
+enumerate(A)不仅返回A中的元素，顺便给该元素一个索引值（默认从0开始）
+
+### break语句
+
+可以跳出当前所在层的循环
+
+### continue语句
+
+终止本轮循环并开始下一轮循环
+
+```python
+for i in range(10):
+    if i % 2 != 0:
+        print(i)
+        continue
+    i += 2
+    print(i)
+
+# 2
+# 1
+# 4
+# 3
+# 6
+# 5
+# 8
+# 7
+# 10
+# 9
+```
+
+> for循环内循环体中对循环数的改变不影响循环数下一轮的值
+
+### pass语句
+
+当你在需要有语句的地方不写任何语句，解释器就会提示出错，pass语句就是解决这一问题，它的意思是“不做任何事”
+
+例：
+
+```python
+def a_func():
+    pass
+```
+
+pass是空语句，不做任何操作，只起到占位的作用，其作用是为了保持程序结构的完整性；如果暂时不确定要在一个位置上放上什么样的代码，可以先用pass使程序可以正常运行
+
+### 推导式
+
+#### 列表推导式
+
+```python
+[ expr for value in collection [if condition] ]
+```
+
+对于collection中的每一个值如果满足condition，则执行expr
+
+```python
+a = [(i, j) for i in range(0, 3) for j in range(0, 3)]
+print(a)
+
+# [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
+```
+
+#### 元组推导式
+
+```python
+( expr for value in collection [if condition] )
+```
+
+#### 字典推导式
+
+#### 集合推导式
+
+#### 其他
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
