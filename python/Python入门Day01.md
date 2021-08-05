@@ -1,4 +1,4 @@
-# Python入门Day01
+# Python入门Task01
 
 天池龙珠计划的笔记
 
@@ -520,21 +520,142 @@ print(a)
 
 #### 字典推导式
 
+```python
+{ key_expr: value_expr for value in collection [if condition] }
+```
+
 #### 集合推导式
+
+```python
+{ expr for value in collection [if condition] }
+```
 
 #### 其他
 
+```python
+next(iterator[, default])
+```
+
+返回迭代器的下一项，如果迭代器用尽，则返回默认值而不是抛出StopIteration异常
 
 
 
+## 异常处理
 
+异常是运行期间检测到的错误，计算机语言针对可能出现的错误定义了异常类型，某种错误引发对应的异常时，异常处理程序将被启动，从而恢复程序的正常运行
 
+### Python标准异常总结
 
+- BaseException：所有异常的 **基类**
+- Exception：常规异常的 **基类**
+- StandardError：所有的内建标准异常的基类
+- ArithmeticError：所有数值计算异常的基类
+- FloatingPointError：浮点计算异常
+- OverflowError：数值运算超出最大限制
+- ZeroDivisionError：除数为零
+- AssertionError：断言语句（assert）失败
+- AttributeError：尝试访问未知的对象属性
+- EOFError：没有内建输入，到达EOF标记
+- EnvironmentError：操作系统异常的基类
+- IOError：输入/输出操作失败
+- OSError：操作系统产生的异常（例如打开一个不存在的文件）
+- WindowsError：系统调用失败
+- ImportError：导入模块失败的时候
+- KeyboardInterrupt：用户中断执行
+- LookupError：无效数据查询的基类
+- IndexError：索引超出序列的范围
+- KeyError：字典中查找一个不存在的关键字
+- MemoryError：内存溢出（可通过删除对象释放内存）
+- NameError：尝试访问一个不存在的变量
+- UnboundLocalError：访问未初始化的本地变量
+- ReferenceError：弱引用试图访问已经垃圾回收了的对象
+- RuntimeError：一般的运行时异常
+- NotImplementedError：尚未实现的方法
+- SyntaxError：语法错误导致的异常
+- IndentationError：缩进错误导致的异常
+- TabError：Tab和空格混用
+- SystemError：一般的解释器系统异常
+- TypeError：不同类型间的无效操作
+- ValueError：传入无效的参数
+- UnicodeError：Unicode相关的异常
+- UnicodeDecodeError：Unicode解码时的异常
+- UnicodeEncodeError：Unicode编码错误导致的异常
+- UnicodeTranslateError：Unicode转换错误导致的异常
 
+![imgaliyun01](https://tianchi-public.oss-cn-hangzhou.aliyuncs.com/public/files/forum/162210513255214581622105132094.png)
 
+### Python标准警告总结
 
+- Warning：警告的基类
+- DeprecationWarning：关于被弃用的特征的警告
+- FutureWarning：关于构造将来语义会有改变的警告
+- UserWarning：用户代码生成的警告
+- PendingDeprecationWarning：关于特性将会被废弃的警告
+- RuntimeWarning：可疑的运行时行为(runtime behavior)的警告
+- SyntaxWarning：可疑语法的警告
+- ImportWarning：用于在导入模块过程中触发的警告
+- UnicodeWarning：与Unicode相关的警告
+- BytesWarning：与字节或字节码相关的警告
+- ResourceWarning：与资源使用相关的警告
 
+### try-except语句
 
+```python
+try:
+    检测范围
+except Exception[as reason]:
+    出现异常后的处理代码
+```
+
+如果在执行try子句的过程中发生了异常，那么try子句余下的部分将被忽略。如果异常的类型和except之后的名称相符，那么对应的except子句将被执行，最后执行try-except语句之后的代码
+
+如果一个异常没有与任何的except匹配，这个异常将被传递给上层的try中
+
+```python
+try:
+    f = open('test.txt')
+    print(f.read())
+    f.close()
+except OSError as error:
+    print('打开文件出错\n原因是：' + str(error))
+
+# 打开文件出错
+# 原因是：[Errno 2] No such file or directory: 'test.txt'
+```
+
+一个try可能有多个except，最多只有一个会被执行，且在使用多个except时，必须坚持对其规范排序，要从最具针对性的异常到最通用的异常
+
+一个except可以同时处理多个异常，将这些异常放在一个括号里成为元组
+
+### try-except-finally语句
+
+如果一个异常在try中被抛出，又没有任何except把它截住，那么这个异常会在finally子句执行后被抛出
+
+### try-except-else语句
+
+```python
+try:
+    检测范围
+except:
+    出现异常后的处理代码
+else:
+    如果没有异常执行这块代码
+```
+
+else语句的存在必须以except语句的存在为前提，在没有except语句的try语句中使用else语句，会引发语法错误。
+
+### raise语句
+
+Python使用raise语句抛出一个指定的异常
+
+```python
+try:
+    raise NameError('HiThere')
+except NameError:
+    print('An exception flew by!')
+    
+# An exception flew by!
+```
 
 
 
